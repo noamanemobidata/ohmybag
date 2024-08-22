@@ -16,7 +16,7 @@ library(bslib)
 source_python('knapsack_solver.py')
 
 
-GAME_DURATION_SECONDS = 18
+GAME_DURATION_SECONDS = 30
 TIMER_GREEN_THRESHOLD= 15
 TIMER_WARNING_THRESHOLD= 7
 

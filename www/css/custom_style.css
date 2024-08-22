@@ -1,0 +1,179 @@
+body, html {
+  /* The image used */
+  background-image: url("images/bg.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.modal-content {
+ 
+  background-image: url("images/8CNJ.gif");
+  height: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: scroll;
+  
+}
+
+.modal-body{
+  height: 51vh;
+  overflow-y: scroll;
+}
+
+.modal-diaglog{
+  margin: 100px auto 30px auto;
+}
+
+.default-sortable .rank-list {
+  background-color: transparent!important;
+  
+}
+
+.rank-list-item{
+   background-color: #2b3b2c!important;
+   display: inline-block  !important;
+   
+   font-size: 18px;
+   margin-right:5px;
+   border-radius: 10px!important;
+}
+
+.bucket-list-header,  .rank-list-title{
+  color: white;
+}
+		
+.default-sortable.rank-list-container{
+  border-radius: 10px!important;
+  padding-bottom:30px;
+}
+
+.default-sortable .rank-list-item:hover:not(.disabled){
+  background-color: #37628a!important;
+}
+    
+  
+  
+
+#rank-list-rank_list_1 {
+  position: relative; /* Make sure rank_list_1 is the reference point */
+  overflow: hidden; /* Ensure the effect doesn't spill outside the container */
+  border-radius: 10px;
+}
+
+#rank-list-rank_list_1:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Change to absolute to ensure it's relative to #rank_list_1 */
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle 10vmax at var(--cursorX) var(--cursorY),
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, .5) 80%,
+    rgba(0, 0, 0, .95) 100%
+  );
+  pointer-events: none; /* Ensure the pseudo-element doesn't interfere with interactions */
+}
+
+.centerdiv {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+
+.progress-container {
+    position: relative;
+    border-radius: 10px;
+    background-color: #555;
+    width: 100%;
+    font-size: 36px;
+    text-align: center;
+    overflow: hidden;
+    border: double;
+    border-color:white;
+}
+
+
+
+.progress-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+.score_house{
+  border-radius:10px;
+  background-color:#555;
+  width:100%;
+  font-size: 36px;
+  text-align: center;
+  color:white;
+  border: double;
+}
+
+.bag-size-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bag-size {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: white;
+    background-color: transparent;
+}
+
+.bag-size:hover {
+    border-color: #888;
+    background-color: #eee;
+    color: black;
+}
+
+.bag-size.selected {
+    border-color: #ff9800;
+    background-color: #ffe0b2;
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+    color: black;
+}
+
+.bag-emoji {
+    font-size: 2rem;
+}
+
+.bag-size[data-size='L'] .bag-emoji {
+    font-size: 5rem; /* Grande taille */
+}
+
+.bag-size[data-size='M'] .bag-emoji {
+    font-size: 3.5rem; /* Taille moyenne */
+}
+
+.bag-size[data-size='S'] .bag-emoji {
+    font-size: 1.9rem; /* Petite taille */
+}
+
+
+.shake-top{animation:shake-top .8s cubic-bezier(.455,.03,.515,.955) both}
+
+@keyframes shake-top{0%,100%{transform:rotate(0deg);transform-origin:50% 0}10%{transform:rotate(2deg)}20%,40%,60%{transform:rotate(-4deg)}30%,50%,70%{transform:rotate(4deg)}80%{transform:rotate(-2deg)}90%{transform:rotate(2deg)}}
+
+
+

@@ -149,7 +149,7 @@ server <- function(input, output, session) {
           
           if(!EXEED_WEIGHT_LIMIT){
             
-            upd_string <- glue_sql("UPDATE  game_scores SET nb_games=nb_games+1 , score=GREATEST(score,{s}) WHERE omg_id={uid} ",.con = pool)
+            upd_string <- glue_sql("UPDATE  game_scores SET nb_games=nb_games+1 , score=GREATEST(score,{s}) , date_last_game = CURRENT_TIMESTAMP WHERE omg_id={uid} ",.con = pool)
             dbExecute(pool, upd_string) 
             
           }
@@ -193,6 +193,7 @@ server <- function(input, output, session) {
   
   
   output$init_message <- renderUI({
+    
     HTML("<div style='font-size:16px;'> You're a skilled thief breaking into a house to steal valuable items.<br> <br>
                     Choose wisely, keeping your backpack's weight limit in mind. <br> <br>
                          Maximize the value of your loot before time runs out.<br><br>

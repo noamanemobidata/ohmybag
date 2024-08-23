@@ -26,6 +26,16 @@ body, html {
   overflow-y: scroll;
 }
 
+.modal-content::-webkit-scrollbar, .modal-body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal-content, .modal-body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .modal-diaglog{
   margin: 100px auto 30px auto;
 }

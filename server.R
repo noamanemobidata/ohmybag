@@ -149,6 +149,11 @@ server <- function(input, output, session) {
             class_lights_container<- ''
           }          
           
+          if(s==0){
+            
+            class_lights_container <- 'lights-container'
+          }
+          
           uid <- get_cookie("omg_uid")
           
           
@@ -167,7 +172,7 @@ server <- function(input, output, session) {
             size = "l", fade = F, 
             easyClose = F,
             div(class=class_lights_container, 
-                if(EXEED_WEIGHT_LIMIT){ tagList(
+                if(EXEED_WEIGHT_LIMIT | s==0){ tagList(
                   div( class="redlight"), 
                   div(class="bluelight")
                 ) 

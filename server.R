@@ -86,6 +86,9 @@ server <- function(input, output, session) {
     
     cl = ifelse(timer()<TIMER_WARNING_THRESHOLD & timer()!=0, "shake-top","")
     
+    
+
+    
     absolutePanel(top = 10,left = 10,fixed = T, 
                   div(
                     class=cl, 
@@ -139,9 +142,11 @@ server <- function(input, output, session) {
             
             wmsg <- "You lost, the bag is torn!" 
             smsg <-  ''
+            class_lights_container <- 'lights-container'
           }else{
             wmsg <- ''
             smsg <- glue("your reach <span style='font-size:26px;'>{m}$</span> ie <span style='font-size:26px;'>{s}%</span> of goal!")
+            class_lights_container<- ''
           }          
           
           uid <- get_cookie("omg_uid")
@@ -154,13 +159,19 @@ server <- function(input, output, session) {
             
           }
           
+        
           
           showModal(modalDialog(
             title = NULL, 
             footer = actionButton(inputId = "restart",label = "New game",icon = icon('undo'),class="bag-size"),
             size = "l", fade = F, 
             easyClose = F,
-            div(
+            div(class=class_lights_container, 
+                if(EXEED_WEIGHT_LIMIT){ tagList(
+                  div( class="redlight"), 
+                  div(class="bluelight")
+                ) 
+                }, 
             bucket_list(
               header =HTML(glue( "Countdown completed! {wmsg} { message_cong} {smsg} The optimal set of items is :")),
               group_name = "blg",
@@ -195,7 +206,7 @@ server <- function(input, output, session) {
   output$init_message <- renderUI({
     
     HTML("<div style='font-size:16px;'> You're a skilled thief breaking into a house to steal valuable items.<br> <br>
-                    Choose wisely, keeping your backpack's weight limit in mind. <br> <br>
+                    Choose wisely (Drag & Drop), keeping your backpack's weight limit in mind. <br> <br>
                          Maximize the value of your loot before time runs out.<br><br>
                                   
                                     </div>")
@@ -547,6 +558,7 @@ server <- function(input, output, session) {
     )
     
   })
+  
   
   
 }

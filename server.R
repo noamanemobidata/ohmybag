@@ -19,10 +19,10 @@ server <- function(input, output, session) {
         cookie_value = new_omg_uid 
       )
       
-      insert_string <- glue_sql("INSERT INTO game_scores (omg_id)
-                             VALUES ({new_omg_uid}); ",.con = pool)
+      # insert_string <- glue_sql("INSERT INTO game_scores (omg_id)
+      #                        VALUES ({new_omg_uid}); ",.con = pool)
 
-      dbExecute(pool, insert_string) 
+      # dbExecute(pool, insert_string) 
       
     }
 
@@ -157,12 +157,12 @@ server <- function(input, output, session) {
           uid <- get_cookie("omg_uid")
           
           
-          if(!EXEED_WEIGHT_LIMIT){
+          # if(!EXEED_WEIGHT_LIMIT){
             
-            upd_string <- glue_sql("UPDATE  game_scores SET nb_games=nb_games+1 , score=GREATEST(score,{s}) , date_last_game = CURRENT_TIMESTAMP WHERE omg_id={uid} ",.con = pool)
-            dbExecute(pool, upd_string) 
+          #   upd_string <- glue_sql("UPDATE  game_scores SET nb_games=nb_games+1 , score=GREATEST(score,{s}) , date_last_game = CURRENT_TIMESTAMP WHERE omg_id={uid} ",.con = pool)
+          #   dbExecute(pool, upd_string) 
             
-          }
+          # }
           
         
           

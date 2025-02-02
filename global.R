@@ -66,13 +66,3 @@ generate_game_scenario = function(BAG_SIZE="M"){
   
 }
 
-
-
-pool <- pool::dbPool(odbc::odbc(),
-                     Driver = "postgresql",
-                     Server =ifelse(Sys.getenv("ENVIR")=="dev", Sys.getenv('PGIP'), paste0("/cloudsql/",Sys.getenv('cloud_sql_con_name')) ),
-                     Database = Sys.getenv("dbname") ,
-                     UID = Sys.getenv("user"),
-                     PWD = Sys.getenv("password"),
-                     sslmode="require",
-                     Port = 5432)
